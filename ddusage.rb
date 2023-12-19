@@ -5,21 +5,21 @@
 class Ddusage < Formula
   desc "A tool that shows a breakdown of Datadog usages in a table."
   homepage "https://github.com/winebarrel/ddusage"
-  version "0.1.0"
+  version "0.2.0"
   license "MIT"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.1.0/ddusage_0.1.0_darwin_amd64.tar.gz"
-      sha256 "e3d3e0dea1bde8f9015400912a5a99f62485fb1dd12646738ba012335c6d8ab4"
+    if Hardware::CPU.arm?
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.0/ddusage_0.2.0_darwin_arm64.tar.gz"
+      sha256 "e225c3af23fc8313a5b8febbda27b46d3a6c24ab2433f867acff3674a76a56cf"
 
       def install
         bin.install 'ddusage'
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.1.0/ddusage_0.1.0_darwin_arm64.tar.gz"
-      sha256 "aef6008167fe7eb0906f7c446e9f6387753b47344a16d9a5db705e0fd96d5d3c"
+    if Hardware::CPU.intel?
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.0/ddusage_0.2.0_darwin_amd64.tar.gz"
+      sha256 "162fc0b967d5b94e4f85694e33fc3b722ec5097f60b41e61cd9abee564bf7430"
 
       def install
         bin.install 'ddusage'
@@ -28,17 +28,17 @@ class Ddusage < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.1.0/ddusage_0.1.0_linux_amd64.tar.gz"
-      sha256 "bc5754f9158671adcd430f5c49c90f31a015f76c07a324ca3e1b8dcca4c00ea5"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.0/ddusage_0.2.0_linux_arm64.tar.gz"
+      sha256 "5c9cb831b8b0da807357625db7150e1563b9f3b61df9768473ae6bd684add820"
 
       def install
         bin.install 'ddusage'
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.1.0/ddusage_0.1.0_linux_arm64.tar.gz"
-      sha256 "f92b952fd7fb7a1e27367820657ed0c72ca8c0d007849caaca68c7af999f621e"
+    if Hardware::CPU.intel?
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.0/ddusage_0.2.0_linux_amd64.tar.gz"
+      sha256 "56a71988f27dcec638234985531b9e4fc1ab351a0c36202e865aa9ff95fa496e"
 
       def install
         bin.install 'ddusage'
