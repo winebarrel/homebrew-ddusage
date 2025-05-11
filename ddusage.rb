@@ -5,21 +5,21 @@
 class Ddusage < Formula
   desc "A tool that shows a breakdown of Datadog usages in a table."
   homepage "https://github.com/winebarrel/ddusage"
-  version "0.2.1"
+  version "0.2.2"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.1/ddusage_0.2.1_darwin_amd64.tar.gz"
-      sha256 "cd8e67c65239e91e543cde99ed8d9e83b8ad3f5e3bee2b807b16f418e84e431f"
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.2/ddusage_0.2.2_darwin_amd64.tar.gz"
+      sha256 "acfb9c9c3f0137d0682157846f5ca66d4d887a5ef7055d07d1cd31bf30514a3a"
 
       def install
         bin.install 'ddusage'
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.1/ddusage_0.2.1_darwin_arm64.tar.gz"
-      sha256 "63c8c650fd877691af57d04bd52983112d1daee7be3f863a8f75223a7d4f8f1a"
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.2/ddusage_0.2.2_darwin_arm64.tar.gz"
+      sha256 "c607e7a1cc54b91ab0a6e4c44df9f59643fae4b2193426e55c95f08873277871"
 
       def install
         bin.install 'ddusage'
@@ -28,18 +28,16 @@ class Ddusage < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.1/ddusage_0.2.1_linux_arm64.tar.gz"
-      sha256 "e121c1fae9d7cf65adb81877b9b432512563250854659112a604e290b1172938"
-
+    if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.2/ddusage_0.2.2_linux_amd64.tar.gz"
+      sha256 "ac01b5d1283581309a07d0db0b91059815715a87354232b1ed6481bc917129d2"
       def install
         bin.install 'ddusage'
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.1/ddusage_0.2.1_linux_amd64.tar.gz"
-      sha256 "220d2ad8e5f027b223be9507455b3180069f8956da7b38f0993a482c90fe0cc5"
-
+    if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
+      url "https://github.com/winebarrel/ddusage/releases/download/v0.2.2/ddusage_0.2.2_linux_arm64.tar.gz"
+      sha256 "e1adf3c0d0bd9ecffc006f19bef0253098c5f343e33659cb39b96e9a1580a3d7"
       def install
         bin.install 'ddusage'
       end
